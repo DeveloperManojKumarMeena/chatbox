@@ -1,9 +1,16 @@
-
+import Sidebar from "./components/Sidebar";
+import ChatWindow from "./components/ChatWindow";
+import { ChatProvider } from "./context/ChatContext";
 
 const App = () => {
   return (
-    <div>App</div>
-  )
-}
+    <ChatProvider>
+      <div className="h-screen flex">
+        <Sidebar />
+        <ChatWindow />
+      </div>
+    </ChatProvider>
+  );
+};
 
-export default App
+export default App;
