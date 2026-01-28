@@ -1,16 +1,155 @@
-# React + Vite
+# 💬 React Chat App (WhatsApp-like UI)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+यह एक **Frontend-only Chat Application** है जो **React JS + Tailwind CSS** से बनाया गया है।  
+इसका उद्देश्य WhatsApp जैसे chat flow, UI structure और React की real-world architecture को समझना है।
 
-Currently, two official plugins are available:
+> ⚠️ Note:  
+> यह app backend के बिना है (no database, no socket).  
+> Future में इसमें Socket.io और backend easily add किया जा सकता है।
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🚀 Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- ✅ WhatsApp जैसी UI layout  
+- ✅ Left Sidebar में Users list  
+- ✅ Right Side में Chat Window  
+- ✅ Sender & Receiver messages अलग-अलग style में  
+- ✅ Message send functionality  
+- ✅ Auto time stamp  
+- ✅ React Context API का use  
+- ✅ Fully component-based structure  
+- ✅ Tailwind CSS for styling  
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ Tech Stack
+
+- **React JS** (Vite)
+- **Tailwind CSS**
+- **Context API**
+- **JavaScript (ES6+)**
+
+---
+
+## 📁 Project Folder Structure
+
+```
+src/
+│
+├── components/
+│ ├── Sidebar.jsx // User list (Left panel)
+│ ├── ChatWindow.jsx // Selected chat window
+│ ├── Message.jsx // Single message bubble
+│ └── MessageInput.jsx // Input box + Send button
+│
+├── context/
+│ └── ChatContext.jsx // Global state (chat logic)
+│
+├── data/
+│ ├── users.js // Dummy users
+│ └── chats.js // Dummy chat messages
+│
+├── App.jsx // App layout
+├── main.jsx // Entry point
+└── index.css // Tailwind styles
+
+```
+---
+
+## 🧠 Project Architecture (How It Works)
+
+### 1️⃣ ChatContext (Core Logic)
+
+- Selected user store करता है
+- Messages store करता है
+- `sendMessage()` function provide करता है
+- पूरे app में state share करता है
+
+👉 यही WhatsApp-like apps का **real structure** होता है।
+
+---
+
+### 2️⃣ Sidebar (Left Panel)
+
+- Users list show करता है
+- User पर click करने से chat open होती है
+- `setSelectedUser()` Context के through call होता है
+
+---
+
+### 3️⃣ ChatWindow (Main Area)
+
+- Selected user का नाम show करता है
+- Messages list render करता है
+- नीचे MessageInput component होता है
+
+---
+
+### 4️⃣ Message Component
+
+- Sender (`me`) → Right side  
+- Receiver (`them`) → Left side  
+- Tailwind classes से UI control होती है
+
+---
+
+### 5️⃣ MessageInput
+
+- User message type करता है
+- Send button से message Context में add होता है
+- Input auto clear हो जाता है
+
+---
+
+## ▶️ How to Run the Project
+
+### Step 1: Install dependencies
+```bash
+npm install
+```
+
+### Step 2: Start development server
+```bash
+npm run dev
+```
+### Step 3: Open browser
+```bash
+http://localhost:5173
+
+```
+
+### 📌 Important Notes (For Learning)
+
+<li>यह project job-ready frontend structure follow करता है
+
+<li>Context API का practical use समझने के लिए best example है
+
+<li> Backend जोड़ना बहुत आसान रहेगा:
+
+    Socket.io
+
+    MongoDB
+
+    Authentication
+
+---
+### 🔮 Future Improvements (Next Level)
+
+<li>🔌 Real-time chat using Socket.io
+
+<li>🔐 Login / Signup system
+
+<li>🟢 Online / Offline status
+
+<li>📱 Fully responsive (mobile view)
+
+<li>💾 Database integration
+
+---
+
+### 👨‍💻 Author
+
+**Manoj Kumar Meena** 
+<p>Frontend / Full-Stack Developer (Learning Phase)
+<p>This project is built for learning, practice, and interview preparation.
